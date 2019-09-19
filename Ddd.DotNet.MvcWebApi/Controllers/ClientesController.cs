@@ -8,10 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace Ddd.DotNet.MvcWebApi.Controllers
 {
+    [EnableCors(origins: "*",headers:"*",methods: "*")]
     public class ClientesController : ApiController
     {
         private readonly IClienteAppService _clienteApp;
@@ -72,7 +74,7 @@ namespace Ddd.DotNet.MvcWebApi.Controllers
 
         // PUT: api/Clientes/5
         [ResponseType(typeof(Client))]
-        public IHttpActionResult Put(int id, ClientViewModel cliente)
+        public IHttpActionResult Put(int id, [FromBody]ClientViewModel cliente)
         {
             if (!ModelState.IsValid)
             {

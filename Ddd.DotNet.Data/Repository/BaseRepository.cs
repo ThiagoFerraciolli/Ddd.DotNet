@@ -32,6 +32,7 @@ namespace Ddd.DotNet.Data.Repository
         public void Remove(TEntity obj)
         {
             Db.Set<TEntity>().Remove(obj);
+            Db.SaveChanges();
         }
 
         public void Update(TEntity obj)

@@ -10,6 +10,7 @@ namespace Ddd.DotNet.MvcWebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
